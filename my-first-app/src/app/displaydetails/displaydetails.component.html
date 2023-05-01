@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-primary" (click)="toggleDisplayAndLog()">
+      Display Details
+    </button>
+    <hr />
+    <p
+      *ngIf="toggleDisplay"
+      [ngStyle]="{ backgroundColor: count >= 5 ? 'blue' : 'white' }"
+      [ngClass]="{ whiteColor: count >= 5 }"
+    >
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem
+      fugit earum ipsam temporibus blanditiis iure totam quasi quam, suscipit
+      dolores ducimus, aperiam consectetur doloremque veniam ipsum, maxime
+      dolorem sit corrupti.
+    </p>
+    <div *ngFor="let buttonClick of buttonClicks; let currentIndex = index">
+      <p
+        [ngStyle]="{ backgroundColor: currentIndex >= 4 ? 'blue' : 'white' }"
+        [ngClass]="{ whiteColor: currentIndex >= 4 }"
+      >
+        {{ buttonClick }}
+      </p>
+    </div>
+  </div>
+</div>

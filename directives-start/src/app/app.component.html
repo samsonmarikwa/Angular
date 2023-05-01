@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="toggleOdd()">
+        {{ buttonCaption }}
+      </button>
+      <br /><br />
+      <!-- <ul class="list-group" *ngIf="onlyOdd; else onlyEven">
+        <li
+          class="list-group-item"
+          *ngFor="let number of oddNumbers"
+          [ngClass]="{ odd: onlyOdd }"
+          [ngStyle]="{ backgroundColor: onlyOdd ? 'purple' : 'transparent' }"
+        >
+          {{ number }}
+        </li>
+      </ul>
+      <ng-template #onlyEven>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let number of evenNumbers"
+            [ngClass]="{ even: !onlyOdd }"
+            [ngStyle]="{ backgroundColor: !onlyOdd ? 'blue' : 'transparent' }"
+          >
+            {{ number }}
+          </li>
+        </ul>
+      </ng-template> -->
+
+      <ul class="list-group" *appUnless="onlyOdd">
+        <li
+          class="list-group-item"
+          *ngFor="let number of oddNumbers"
+          [ngClass]="{ odd: onlyOdd }"
+          [ngStyle]="{ backgroundColor: onlyOdd ? 'purple' : 'transparent' }"
+        >
+          {{ number }}
+        </li>
+      </ul>
+      <p appBasicHighlight>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
+        unde repellat inventore nam commodi, mollitia repellendus laboriosam
+        quisquam, blanditiis quibusdam temporibus quo suscipit? Et sit modi sed
+        est at pariatur.
+      </p>
+      <p appBetterHighlight defaultColor="yellow" highlightColor="red">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+        exercitationem similique, est saepe odit nisi, ex animi, aspernatur
+        corrupti maxime accusantium cum optio voluptatem consectetur! Facilis
+        labore perspiciatis repudiandae mollitia.
+      </p>
+    </div>
+    <div [ngSwitch]="value">
+      <p *ngSwitchCase="5">Value is five - {{ value }}</p>
+      <p *ngSwitchCase="10">Value is ten - {{ value }}</p>
+      <p *ngSwitchCase="15">Value is fifteen - {{ value }}</p>
+      <p *ngSwitchCase="20">Value is twenty - {{ value }}</p>
+      <p *ngSwitchDefault>Default value - {{ value }}</p>
+    </div>
+  </div>
+</div>
